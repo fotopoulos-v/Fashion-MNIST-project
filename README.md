@@ -71,12 +71,49 @@ The project uses the **Fashion MNIST** dataset, consisting of:
 
 ## 🎨 Results & Observations
 
-- **GAN:** Basic but stable, moderate image quality  
-- **DCGAN:** Better structure & sharpness, needed balancing tricks  
-- **VAE:** Blurrier but stable & interpretable latent space  
-- **Diffusion Model:** Best results, but computationally expensive  
+### Evaluation of the Four Models  
 
-> Each model demonstrates trade-offs between **training stability**, **image quality/diversity**, and **computational cost**.
+#### 🎭 GAN
+- **Training Speed:** Fast to train per epoch.  
+- **Training Stability:** Moderate; training was stable in this project but GANs are often sensitive to hyperparameters.  
+- **Image Quality:** Acceptable; images were plausible but lacked fine detail.  
+- **Image Diversity:** Limited; prone to repetition without major mode collapse.  
+- **Computational Cost:** Low; fully connected architecture is lightweight.  
+
+➤➤ **Summary:** A simple and fast model that can generate basic images, but struggles with detail and diversity.  
+
+---
+
+#### 🌀 DCGAN
+- **Training Speed:** Slower than vanilla GAN due to convolutional layers.  
+- **Training Stability:** Less stable; the discriminator tended to overpower the generator.  
+- **Image Quality:** Improved sharpness and structure over vanilla GAN.  
+- **Image Diversity:** Better than vanilla GAN.  
+- **Computational Cost:** Moderate; more complex due to convolutional operations.  
+
+➤➤ **Summary:** A more powerful GAN variant producing higher-quality images, but requiring careful balancing to ensure stable training.  
+
+---
+
+#### 🔀 VAE
+- **Training Speed:** Fast; converges quickly and reliably.  
+- **Training Stability:** Very stable due to its probabilistic framework.  
+- **Image Quality:** Comparable with GANs; images are often blurrier.  
+- **Image Diversity:** Good; covers more modes of the data distribution.  
+- **Computational Cost:** Low to moderate.  
+
+➤➤ **Summary:** A stable and efficient generative model with good data coverage, though image quality is usually softer.  
+
+---
+
+#### 🌫 Diffusion Model
+- **Training Speed:** Very slow; requires many steps and long training times.  
+- **Training Stability:** Very stable; training is predictable and robust.  
+- **Image Quality:** High; often surpasses GANs in detail and realism.  
+- **Image Diversity:** Good; captures wide variation in the data.  
+- **Computational Cost:** High; both training and sampling are resource-intensive.  
+
+➤➤ **Summary:** The most powerful model in terms of image quality and diversity, but with significant computational demands.  
 
 ---
 
@@ -85,3 +122,4 @@ The project uses the **Fashion MNIST** dataset, consisting of:
 This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.  
 
 ---
+
